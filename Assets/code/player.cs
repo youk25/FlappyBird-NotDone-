@@ -2,37 +2,46 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private // pas de :
-    float vitesseY = 4f;
-    Rigidbody2D rb;
-    bool enCollision = false;
-     
+    private float vitesseY = 4f;
+    private Rigidbody2D rb;
+    private bool enCollision = false;
+    //private int points = 0;
+    private gameManager gm;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void Start()
     {
         // Initialisation du Rigidbody2D
         rb = GetComponent<Rigidbody2D>();
-       
+        gm = FindObjectOfType<gameManager>();
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
         
         // Deplacement 
         if (Input.GetKeyDown(KeyCode.Space) && !enCollision)
         {
-            rb.velocity = new Vector3(0, vitesseY, 0);
+            rb.velocity = new Vector2(0, vitesseY);
         }
         
     }
-    
-    void OnCollisionEnter2D(Collision2D collision)
+
+    public void OnCollisionEnter2D(Collision2D collision)
     {
-        
-    if (collision.gameObject.CompareTag("Tuyau"))
-        rb.velocity = new Vector2(0, 0);
-        Debug.Log("Game Over !");
-        enCollision = true;
+        if (collision.gameObject.CompareTag("Obstacle"))
+        { 
+            rb.velocity = new Vector2(0, 0);
+            enCollision = true;
+            gm.GameOver();
+        }
+    }
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Scoring"))
+        {
+            gm.AddPoints();
+        }
     }
 }
