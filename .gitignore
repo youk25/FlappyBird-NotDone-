@@ -1,62 +1,57 @@
+############################
+# Unity
+############################
+
 [Ll]ibrary/
 [Tt]emp/
 [Oo]bj/
 [Bb]uild/
 [Bb]uilds/
 [Ll]ogs/
-[Mm]emoryCaptures/
+[Uu]ser[Ss]ettings/
 
-# Asset meta files
-*.pidb.meta
-*.pdb.meta
+############################
+# Visual Studio / VS Code
+############################
 
-# Unity auto-generated files
-*.csproj
-*.unityproj
-*.sln
+.vs/
+.vscode/
 *.suo
-*.tmp
 *.user
 *.userprefs
 *.pidb
 *.booproj
 *.svd
+
+############################
+# Mono / .NET
+############################
+
+*.dll
+*.exe
+*.mdb
 *.pdb
 
-# VS Code
-.vscode/
+############################
+# Unity cache / auto-generated
+############################
 
-# Visual Studio
 *.csproj
 *.unityproj
 *.sln
-*.suo
 *.tmp
-*.user
-*.userprefs
-*.pidb
-*.booproj
+*.bak
+*.swp
 
-# JetBrains Rider
+############################
+# OS
+############################
+
+.DS_Store
+Thumbs.db
+
+############################
+# JetBrains (si jamais)
+############################
+
 .idea/
-*.sln.iml
-
-# Build results
-[Bb]uild/
-[Bb]uilds/
-
-# Other Unity stuff
-*.apk
-*.aab
-*.unitypackage
-
-# Crash reports
-sysinfo.txt
-
-# Ignore Packages folder except manifest.json
-Packages/*
-!Packages/manifest.json
-!Packages/packages-lock.json
-
-# TextMeshPro auto-generated files
-[Tt]extMesh Pro/
